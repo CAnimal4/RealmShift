@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RealmShift</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div id="ui">
+    <div id="start-screen" class="panel overlay">
+      <div class="title">RealmShift</div>
+      <div class="menu-buttons">
+        <button id="start-btn">Start Game</button>
+        <button id="continue-btn" style="display:none;">Continue</button>
+      </div>
+      <div class="help">
+        <h3>How to Play</h3>
+        <p>Move: WASD / Arrow keys</p>
+        <p>Attack: Left Click or Space/J. Ranged: Right Click or F (with bow).</p>
+        <p>Interact: E (open chests / doors). Crafting: C. Pause: Esc.</p>
+      </div>
+    </div>
+
+    <div id="hud" class="panel hud hidden">
+      <div class="hud-row">
+        <div id="health" class="hud-box">HP: 0</div>
+        <div id="stamina" class="hud-box">ST: 0</div>
+        <div id="zone" class="hud-box">Zone: Village</div>
+      </div>
+      <div id="hotbar" class="hotbar"></div>
+      <div class="hud-hint">C: Crafting | E: Interact | Esc: Pause</div>
+    </div>
+
+    <div id="pause-screen" class="panel overlay hidden">
+      <div class="title small">Paused</div>
+      <div class="menu-buttons">
+        <button id="resume-btn">Resume</button>
+        <button id="savequit-btn">Save &amp; Quit</button>
+        <button id="quit-btn">Quit to Menu</button>
+      </div>
+    </div>
+
+    <div id="crafting-screen" class="panel overlay hidden">
+      <div class="title small">Crafting</div>
+      <div id="recipes"></div>
+      <button id="close-craft">Close (C)</button>
+    </div>
+
+    <div id="gameover-screen" class="panel overlay hidden">
+      <div class="title small">You Died</div>
+      <div class="menu-buttons">
+        <button id="retry-btn">Retry</button>
+        <button id="menu-btn">Main Menu</button>
+      </div>
+    </div>
+
+    <div id="victory-screen" class="panel overlay hidden">
+      <div class="title small">Victory!</div>
+      <p>You cleared the dungeon.</p>
+      <div class="menu-buttons">
+        <button id="playagain-btn">Play Again</button>
+        <button id="victory-menu-btn">Back to Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
