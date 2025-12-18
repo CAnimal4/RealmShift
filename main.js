@@ -9,9 +9,14 @@
     const canvas = document.getElementById("game");
     if (!canvas) {
       showMissingCanvasError();
-      throw new Error("Canvas element with id 'game' not found.");
+      showFatal("Fatal: <canvas id='game'> missing from index.html.");
+      return;
     }
     const ctx = canvas.getContext("2d");
+    if (!ctx) {
+      showFatal("Fatal: Unable to get 2D context from canvas.");
+      return;
+    }
 
     // Debug overlay for on-page error visibility
     const debugOverlay = document.createElement("div");
@@ -25,10 +30,11 @@
     }
 
     window.onerror = function (message, source, lineno, colno, error) {
-      pushError(`Error: ${message} at ${source}:${lineno}:${colno}`);
+      pushError(`Error: ${message} at ${source}:${lineno}:${colno}\n${error?.stack || ""}`);
     };
     window.onunhandledrejection = function (event) {
-      pushError(`Unhandled rejection: ${event.reason}`);
+      const stack = event.reason?.stack || event.reason;
+      pushError(`Unhandled rejection: ${stack}`);
     };
 
     // Prevent scroll keys during gameplay
@@ -336,6 +342,12 @@
       const div = document.createElement("div");
       div.id = "error-overlay";
       div.innerHTML = "Fatal error: Missing <canvas id='game'> in index.html.<br/>Please add <canvas id=\"game\"></canvas> before loading main.js.";
+      document.body.appendChild(div);
+    }
+    function showFatal(msg){
+      const div = document.createElement("div");
+      div.id = "error-overlay";
+      div.innerHTML = msg;
       document.body.appendChild(div);
     }
 
