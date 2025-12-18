@@ -161,6 +161,34 @@ html, body {
   color: #9ca3af;
 }
 
+.xpbar {
+  position: relative;
+  min-width: 260px;
+  height: 18px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid #1f2937;
+  border-radius: 10px;
+  overflow: hidden;
+  color: #e5e7eb;
+  font-size: 12px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+#xpfill {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  background: linear-gradient(90deg, #22d3ee, #38bdf8);
+  opacity: 0.5;
+}
+
+#xplabel {
+  position: relative;
+  z-index: 1;
+}
+
 #crafting-screen {
   max-height: 90vh;
   overflow-y: auto;
@@ -184,4 +212,32 @@ html, body {
 
 .hidden {
   display: none !important;
+}
+
+#debug-overlay {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  background: rgba(239, 68, 68, 0.9);
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  max-width: 340px;
+  z-index: 9999;
+  white-space: pre-wrap;
+}
+
+#error-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  color: #fca5a5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  z-index: 10000;
 }

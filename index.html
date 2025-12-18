@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RealmShift</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <canvas id="game"></canvas>
@@ -29,6 +29,14 @@
         <div id="health" class="hud-box">HP: 0</div>
         <div id="stamina" class="hud-box">ST: 0</div>
         <div id="zone" class="hud-box">Zone: Village</div>
+        <div id="coins" class="hud-box">Coins: 0</div>
+        <div id="weapon" class="hud-box">Weapon: None</div>
+      </div>
+      <div class="hud-row">
+        <div id="xpbar" class="xpbar">
+          <div id="xpfill"></div>
+          <span id="xplabel">XP 0 / 20 (Lv1)</span>
+        </div>
       </div>
       <div id="hotbar" class="hotbar"></div>
       <div class="hud-hint">C: Crafting | E: Interact | Esc: Pause</div>
@@ -49,6 +57,11 @@
       <button id="close-craft">Close (C)</button>
     </div>
 
+    <div id="perk-screen" class="panel overlay hidden">
+      <div class="title small">Choose a Perk</div>
+      <div id="perk-options" class="menu-buttons"></div>
+    </div>
+
     <div id="gameover-screen" class="panel overlay hidden">
       <div class="title small">You Died</div>
       <div class="menu-buttons">
@@ -67,7 +80,7 @@
     </div>
   </div>
 
-  <script src="main.js"></script>
+  <script src="./main.js" defer></script>
 </body>
 </html>
 
